@@ -3,14 +3,21 @@
 ===============================================================================
 Stored Procedure: Load Silver Layer (Source -> Bronze)
 ===============================================================================
+===============================================================================
+  Quality Checks
+===============================================================================
 Script Purpose:
-    This stored procedure loads data into the 'silver' schema from Cleaned bronze data. 
-    It performs the following actions:
-    - In this First Clean the data from bronze tables and load into silvers tables.
+This script performs various quality checks for data consistency, accuracy,
+and standardization across the 'silver' schema. It includes checks for:
+- Null or duplicate primary keys.
+- Unwanted spaces in string fields.
+- Data standardization and consistency.
+- Invalid date ranges and orders.
+- Data consistency between related fields.
 
-Parameters:
-    None. 
-	  This stored procedure does not accept any parameters or return any values.
+Usage Notes:
+- Run these checks after data loading Silver Layer.
+- Investigate and resolve any discrepancies found during the checks.
 
 Usage Example:
     EXEC silver.load_silver;
